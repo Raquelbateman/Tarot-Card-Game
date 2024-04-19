@@ -37,22 +37,26 @@ const cardImages = {
   
 };
 
+//DOM Manipulation 
+
 
 const drawButton = document.getElementById("drawButton");
 const cardDisplay = document.getElementById("cardDisplay");
 const interpretationDisplay = document.getElementById("interpretation");
 
-
+// button click fordrawing different cards 
 drawButton.addEventListener("click", drawCard);
 
 
 function drawCard() {
+    // math.random will generate a value between 0 and 1
+    //math.floor will round down
     const randomIndex = Math.floor(Math.random() * cards.length);
     const drawnCard = cards[randomIndex];
     const interpretation = interpretations[drawnCard] || "No interpretation available.";
     const cardImagePath = cardImages[drawnCard] || ""; // Default image
 
-
+    // changing of elements
     cardDisplay.textContent = `You drew: ${drawnCard}`;
     interpretationDisplay.textContent = `Interpretation: ${interpretation}`;
     cardDisplay.style.backgroundImage = `url('${cardImagePath}')`;
